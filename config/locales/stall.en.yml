@@ -1,60 +1,405 @@
 en:
+  para:
+    stall:
+      cart:
+        filters:
+          paid_after: Paid after
+          paid_before: Paid before
+
+      variants_matrix:
+        enabled: "Publish ?"
+        price: "Price"
+        add_property: "Add a property"
+        choose_properties_to_build_variants: |
+          Choose the properties and the values you have
+          to automatically create combinations of your product.
+        apply_to_all: "Apply to all combinations"
+
+      variant_select:
+        property_placeholder: "Choose an option ..."
+
+      shipping_note:
+        create: "Notify the customer of the shipment of his order"
+        notification_already_sent_at: "A delivery notification email has already been sent to the customer on %{date}"
+        help: |
+          An e-mail will be sent to the customer to notify him of the shipment of his order.
+          <br>
+          Please check the delivery information below and click "Send"
+        tracking_code_help: |
+          In order to send the link for tracking the delivery to the customer, thank you
+          to enter the tracking code. If you leave this field blank, the mail
+          will be sent but will not contain a tracking link.
+        sent: "Notification sent!"
+        sent_description: "The customer has been notified of the shipment of his order."
+
+      products:
+        weight_hint: "Indicate the product weight <b> in grams </b> "
+        vat_rate_hint: "VAT rate in%. <b>%{rate} if empty. </b>"
+
+  forms:
+    tabs:
+      cart:
+        informations: "Information"
+        billing: "Billing"
+        shipping: "Delivery"
+        payment: "Payment"
+        line_items: "Products"
+
+      product:
+        informations: "Information"
+        images: "Images"
+        descriptions: "Descriptions"
+        variants: "Variations"
+        shipping: "Delivery"
+
+  components:
+    section:
+      products: "Catalog"
+      selling: "Sale"
+    component:
+      products: "Products"
+      product_categories: "Product categories"
+      properties: "Product properties"
+      manufacturers: "Manufacturers"
+      carts: "Orders / Baskets"
+
   stall:
     shared:
-      close: "Close"
+      cancel: "To cancel"
+      close: "To close"
+      send: "To send"
+      sending: "Sending in progress ..."
+
+    products:
+      index:
+        title: "Our catalog"
+      suggester_products:
+        title: "You might also like ..."
+      prices:
+        from: "From %{price}"
+      filters:
+        category_filter: "Category"
+        manufacturer_filter: "Maker"
+        price_filter: "Price"
 
     carts:
+      actions:
+        view_cart: "See my basket"
+      formats:
+        name: "Order #%{ref}"
+
       flashes:
         update:
-          success: "Your cart has successfully been updated"
-          error: "Your cart could not be updated, please check that all the fields are correctly filled"
+          success: "Your basket has been successfully updated."
+          error: "Your basket could not be updated, please check the fields."
+
       recap:
-        update: "Update the cart"
-        validate: "Proceed to order"
+        order_ref: "Order #%{ref}"
+        ordered_at: "Past the %{at}"
+        subtotal: "Sub-total"
+        total_shipment_price: "Delivery"
+        total_eot_price: "Total price excl."
+        total_vat: "Total VAT"
+        total_price: "Total price"
+        total_quantity: "Total quantity"
+        remainder: "The following amount will be converted into a credit"
+        update: "Update the basket"
+        validate: "To order"
+        paid_at: "Paid on%{at}"
+
+    wish_lists:
+      actions:
+        view_wish_list: "See my list"
 
     line_items:
       form:
-        add_to_cart: "Add to cart"
+        add_to_cart: "Add to Cart"
       added:
-        title: "Votre produit a bien été ajouté à votre panier"
-        continue_shopping: "Continuer mes achats"
-        view_cart: "Voir mon panier"
+        title: "Your product has been added to your basket"
+        continue_shopping: "Continue shopping"
       add_error:
-        title: "Votre produit n'a pu être ajouté"
-        description: "Merci de vérifier que vous avez bien rempli la quantité avant d'ajouter le produit au panier."
+        title: "Your product could not be added"
+        description: "Please check that you have filled the quantity before adding the product to the basket."
+      errors:
+        choose: "Please choose a product to add it to the cart"
+        quantity: "Please choose a quantity to add to the basket"
+
+    wish_list_line_items:
+      form:
+        add: "Add to my wish list"
+        remove: "Remove from my Wish list"
+      added:
+        title: "Your product has been added to your Wish list"
+        continue_shopping: "Continue my visit"
 
     checkout:
+      shared:
+        not_checkoutable: "The basket has expired, it has probably already been paid."
       informations:
-        title: "Vos informations"
-        validate: "Valider mes adresses"
-        error: "Your informations could not be saved, please check that all the fields are correctly filled"
-      shipping_method:
-        title: "Mode de livraison"
-        validate: "Valider mon mode de livraison"
-      payment_method:
-        title: "Mode de paiement"
-        validate: "Valider mon mode de paiement"
+        title: "Your informations"
+        validate: "Confirm the order and proceed to payment"
+        error: "Your information could not be saved, please check the fields"
+        signed_in_as: "You are currently logged in as %{email}"
+        create_an_account: "Create an account"
+        accept_the: "I accept"
+      sign_in:
+        already_have_an_account: "I already have an account :"
+        click_to_sign_in: "Click here to login"
+
+        sign_in_instructions: |
+          Fill in the fields following your login details then
+          Click on the button"%{label}"
+        button_label: "Log in"
+
+        email_sign_in: "Connection by e-mail"
+        omniauth_sign_in: "or"
+        password_sign_up: "Enter a password"
+        omniauth_sign_up: "or"
+
       payment:
-        title: "Paiement"
+        title: "Payment"
+        error: |
+          Your payment could not be taken into account, you can try again
+          to pay with the button: "Pay my order"
+      payment_return:
+        title: "Payment made"
+        help: |
+          Your payment has been taken into account and your order has been
+          validated. This will be processed as soon as possible.
+          <br> <br>
+          A confirmation email has been sent to you.
+          <br> <br>
+          Thank you for your trust !
+
+        back_to_shop: "Return to the boutique"
+
+    payments:
+      gateway:
+        pay: "Pay my order"
+      manual_payment_gateway:
+        help: |
+          The amount of your order is zero, you have nothing to pay.
+          <br>
+          In order to validate your order, please check its content and then
+          click on the following button:
+        validate: "Validate my order"
+
+
+    addresses:
+      civilities:
+        m: Mr.
+        mme: Mrs.
+
+    credit_notes:
+      usage_form:
+        title: "Use a credit"
+        you_have_credit: |
+          You have a credit of <b> %{amount} </b> linked to your credit (es)
+          valid.
+        you_can_use_it: |
+          You can use this credit by entering the amount you
+          wish to use this credit in the following field then by clicking
+          on the "Use my credit" button.
+        use_my_credit: "Use my credit"
+        already_used_remove_it: |
+          You have already used a credit, if you want to change the amount
+          used or just delete it from your cart, use
+          the button below to delete it.
+        remove_credit_usage: "Remove the credit from the basket"
+
+      adjustment_label: "Have #%{ref}"
+      source_cart_adjustment_label: "Balance transformed into credit note%{ref}"
+
+    mailers:
+      customer:
+        order_paid_email:
+          subject: "The payment of your order #%{ref} has been made!"
+          intro: "Your order will be processed as soon as possible."
+
+        order_shipped_email:
+          subject: "Your order #%{ref} has been shipped"
+          intro: |
+              Your order #%{ref} has been sent on
+             <strong>%{time} </strong>
+          shipping_method_name: "Your package was sent to you via %{name}"
+          tracking_code: "Your tracking code is as follows: %{code}"
+          tracking_url: |
+            You can follow the delivery of your order with the link
+            next :<br>%{link}
+
+      admin:
+        order_paid_email:
+          subject: "A new order has been placed on the site - %{ref}"
+
+    omniauth:
+      sign_in_with: "%{provider}"
 
   activerecord:
+    enums:
+      cart:
+        state:
+          informations: "Customer information"
+          payment: "Payment"
+          payment_return: "Payment processed"
+      shipment:
+        state:
+          pending: "Waiting"
+          shipped: "Shipped"
+      payment:
+        state:
+          pending: "Waiting"
+          paid: "Paid"
+
+    models:
+      line_item:
+        one: "Product"
+        other: "Products"
+      customer:
+        one: "Customer"
+        other: "Customers"
+      address:
+        one: "Address"
+        other: "Addresses"
+      cart:
+        one: "Basket"
+        other: "Baskets"
+      shipment:
+        one: "Delivery"
+        other: "Deliveries"
+      payment:
+        one: "Payment"
+        other: "Payments"
+      product:
+        one: "Product"
+        other: "Products"
+      product_category:
+        one: "Category"
+        other: "Categories"
+      variant:
+        one: "Variation"
+        other: "Variations"
+      product_detail:
+        one: "Description block"
+        other: "Description blocks"
+      manufacturer:
+        one: "Maker"
+        other: "Makers"
+      curated_product_list:
+        one: "Curated list"
+        other: "Curated lists"
+      curated_list_product:
+        one: "Curated list product"
+        other: "Curated list products"
+
     attributes:
-      stall/customer:
-        email: "E-mail address"
-      stall/line_item:
-        name: "Produit"
-        unit_price: "Prix unitaire"
-        unit_eot_price: "Prix unitaire HT"
-        price: "Prix"
-        eot_price: "Prix HT"
-        quantity: "Quantité"
-      stall/address:
+      curated_product_list:
+        curated_list_products: Products
+      curated_list_product:
+        product: Product
+      line_item:
+        sellable: "Source product"
+        name: "Product Name"
+        quantity: "Amount"
+        unit_eot_price: "Unit Price HT"
+        unit_price: "Unit price incl."
+        eot_price: "Total price excl."
+        price: "Total price incl."
+        vat_rate: "VAT rate"
+        weight: "Weight"
+        state: "Basket step"
+      customer:
+        email: "E-mail adress"
+        shipping_address: "Delivery address"
+        billing_address: "Billing address"
+      address:
         civility: "Civility"
         first_name: "First name"
         last_name: "Last name"
-        address: "Adress"
-        address_details: "Address 2"
-        zip: "Zip code"
+        address: "Address"
+        address_details: "Additional address"
+        zip: "Postal code"
         city: "City"
         country: "Country"
         phone: "Phone"
+        state: "state"
+      product_list:
+        reference: "Reference"
+        customer: "Customer"
+        created_at: "Date"
+        line_items: "Products"
+        use_another_address_for_billing: "Use another address for billing"
+      cart:
+        state: "Basket State"
+        total_price: "Total amount"
+        payment: "Payment"
+        shipment: "Delivery"
+        shipping_address: "Delivery address"
+        billing_address: "Billing address"
+        terms: "Terms of Sales"
+        paid: "Paid"
+      shipment:
+        price: "Price"
+        eot_price: "HT Price"
+        vat_rate: "VAT rate"
+        sent_at: "Sent at"
+        shipping_method: "Delivery method"
+        tracking_code: "Tracking code"
+        state: "state"
+        shipping_note: "Notification"
+      payment:
+        payment_method: "Payment method"
+        paid_at: "Pay it"
+        transaction_id: "Transaction number"
+        state: "State"
+      property:
+        name: "Name of the property"
+        property_values: "Values"
+      property_value:
+        value: "Values"
+      product:
+        published: "Publish ?"
+        product_category: "Product Category"
+        name: "Product Name"
+        slug: "URL fragment"
+        images: Product Pictures
+        description: "Product Description"
+        properties: "Properties"
+        variants: "Variations"
+        product_details: "Product description blocks"
+        manufacturer: "Maker"
+        suggested_products: "Suggested Products"
+        price: "Price"
+        vat_rate: "VAT rate"
+        weight: "Product weight"
+      variant:
+        price: "Price"
+        stock: "Quantity in stock"
+        weight: "Weight"
+      product_category:
+        name: "Last name"
+        slug: "URL fragment"
+        position: "Position"
+        parent: "Parent category"
+        children: "Child categories"
+        products: "Products"
+      product_detail:
+        name: "Headline"
+        content: "Content"
+      manufacturer:
+        name: "Manufacturer's Name"
+        logo: "Logo"
+        products: "Products"
+      image:
+        file: Image
+
+  simple_form:
+    placeholders:
+      address:
+        first_name: "Your first name"
+        last_name: "Your last name"
+        address: "Number and street"
+        address_details: "Other information: building, staircase, intercom etc."
+        country: "Your country"
+        zip: "your postal code"
+        city: "Your city"
+        phone: "Your phone number (mobile / landline)"
