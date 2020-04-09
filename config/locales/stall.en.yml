@@ -220,7 +220,7 @@ en:
           subject: "Your order #%{ref} has been shipped"
           intro: |
               Your order #%{ref} has been sent on
-             <strong>%{time} </strong>
+              <strong>%{time} </strong>
           shipping_method_name: "Your package was sent to you via %{name}"
           tracking_code: "Your tracking code is as follows: %{code}"
           tracking_url: |
